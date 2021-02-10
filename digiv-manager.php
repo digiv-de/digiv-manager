@@ -9,6 +9,8 @@
 
 if (!defined('WPINC')) exit('only useful as wordpress plugin');
 
+require_once(plugin_dir_path( __FILE__ ).'includes/shortcodes.php');
+
 /*
  * hook settings
  */
@@ -102,7 +104,7 @@ function digiv_settings_init()
     ]);
     add_settings_field('digiv_set_exta_attr_mapping', 'Liste mit Extra Attributen', 'plugin_setting_callback', $page, 'digiv_settings_onelogin', [
         'id' => 'digiv_set_exta_attr_mapping', 'type' => 'text', 'size' => 70,
-        'description' => 'Komma getrennte Liste mit SAML Attributen des Users die übernommen werden sollen. Attribute werden mit gleichen Namen unter <i>usermeta</i> übernommen.<br>Abruf mittels <i>get_user_meta(...)</i>'
+        'description' => 'Komma getrennte Liste mit SAML Attributen des Users die übernommen werden sollen. Attribute werden mit gleichen Namen unter <i>usermeta</i> übernommen.<br>Abruf mittels Shortcode <i>[user_meta key="..."]</i>'
     ]);
 }
 
